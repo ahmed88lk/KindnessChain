@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KindnessChain 2.0 - Connect Through Kindness</title>
+    <!-- Add troubleshooting script -->
+    <script src="/troubleshoot.js"></script>
+    <style>
+      /* Add a fallback style in case CSS doesn't load */
+      #root:empty:before {
+        content: "Loading application...";
+        display: block;
+        text-align: center;
+        padding: 2rem;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+      .app-error {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fee2e2;
+        border: 1px solid #ef4444;
+        border-radius: 8px;
+        font-family: Arial, sans-serif;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Add fallback error display -->
+    <div id="error-display" class="app-error">
+      <h2 style="color: #b91c1c; font-size: 20px; margin-bottom: 10px;">Application Error</h2>
+      <p>The application failed to load. Please check your console for more details.</p>
+      <button style="background: #b91c1c; color: white; border: none; padding: 8px 16px; margin-top: 16px; cursor: pointer; border-radius: 4px;" onclick="window.location.reload()">Refresh Page</button>
+    </div>
+    <script>
+      // Show error if app doesn't render within 10 seconds
+      const errorTimeout = setTimeout(function() {
+        const root = document.getElementById('root');
+        if (!root || !root.children.length) {
+          document.getElementById('error-display').style.display = 'block';
+          console.error("Application failed to render within expected time");
+        }
+      }, 10000);
+      
+      // Clear the timeout if the app loads successfully
+      window.addEventListener('load', function() {
+        if (document.getElementById('root').children.length) {
+          clearTimeout(errorTimeout);
+        }
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

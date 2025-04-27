@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #2c7a7b;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .success {
+      color: #059669;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>KindnessChain Server Test</h1>
+  <p>If you're seeing this page, your web server is working correctly.</p>
+  
+  <div class="card">
+    <h2>Server Status: <span class="success">ONLINE</span></h2>
+    <p>This test page confirms that your web server can successfully serve static HTML files.</p>
+    <p>If you're seeing this page but not your React application, the issue is likely with your React code, not the server itself.</p>
+  </div>
+
+  <div class="card">
+    <h2>Troubleshooting Steps</h2>
+    <ol>
+      <li>Check the browser console for JavaScript errors (F12 to open developer tools)</li>
+      <li>Verify your Vite configuration is correct</li>
+      <li>Make sure all required dependencies are installed</li>
+      <li>Check that environment variables are properly configured</li>
+    </ol>
+  </div>
+
+  <script>
+    console.log("Test page loaded successfully");
+  </script>
+</body>
+</html>
