@@ -4,15 +4,34 @@ KindnessChain is a platform that enables sharing, tracking, and inspiring acts o
 
 ## 🌟 Features
 
-- **Multilingual Feed**: Browse kindness acts shared in English, Arabic, and French
-- **Interactive World Map**: See where kindness acts are happening around the world
-- **Kindness Challenges**: Participate in challenges inspired by Islamic teachings
-- **Community**: Join local groups and participate in events
-- **Impact Metrics**: Measure the collective impact of kindness acts
-- **AI Assistant**: Get personalized suggestions through our assistant powered by Google Gemini
-- **Islamic Wisdom**: Draw inspiration from authentic hadiths and Quranic verses about mercy
-- **Peace Image Generator**: Create beautiful images that promote peace and harmony
-- **Multilingual Support**: Interface available in English, Arabic, and French
+<div align="center">
+
+<img src="./public/screenshots/feature1.png" alt="Main Page" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
+
+**Main Page – Discover and share acts of kindness**
+
+---
+
+<img src=".C:\Users\ASUS\Downloads\project-bolt-sb1-soii1asw\kindness\images\image 1 .png" alt="Assistance Chatbot" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
+<img src="C:\Users\ASUS\Downloads\project-bolt-sb1-soii1asw\kindness\images\image3.png" alt="Image Generation" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
+
+<br/>
+
+**Left: Assistance Chatbot**  
+*Get instant help and kindness ideas with our AI-powered assistant.*
+
+**Right: Islamic Peace Image Generation**  
+*Create beautiful, meaningful images inspired by Islamic values.*
+
+---
+
+<img src="C:\Users\ASUS\Downloads\project-bolt-sb1-soii1asw\kindness\images\image4.png" alt="Challenges for Kids" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
+
+**Challenges for Kids – Fun and educational kindness missions**
+
+</div>
+
+---
 
 ## 🚀 Technologies Used
 
@@ -89,13 +108,20 @@ If you find any inaccuracies, please contact us immediately so we can correct th
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how you can contribute:
+We welcome all contributions!  
+Whether you want to fix a bug, suggest a feature, improve the UI, or translate the app, your help is appreciated.
 
-1. Fork the project
+**How to contribute:**
+1. Fork this repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+4. Push to your branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+**Want to discuss an idea or need help?**  
+Open an [issue](https://github.com/your-name/kindness-chain/issues) or join the discussion!
+
+---
 
 ## ❤️ Our Mission
 
