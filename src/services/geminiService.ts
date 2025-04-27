@@ -3,6 +3,7 @@
  */
 import { GoogleGenAI, Modality } from "@google/genai";
 import { SupportedLanguage } from "./translationService";
+import { evaluateContent } from './contentGuidelines';
 
 // Correctly initialize the API with the key from environment variables
 // Add error handling for the API key
@@ -34,13 +35,29 @@ const streamToText = async (stream: AsyncIterable<any>): Promise<string> => {
 /**
  * Generates a kindness idea based on a prompt in English or Arabic
  */
-export const generateKindnessIdea = async (prompt: string, language: SupportedLanguage = 'en'): Promise<string> => {
+export const generateKindnessIdea = async (
+  userInput: string,
+  language: SupportedLanguage = 'en'
+): Promise<string> => {
   try {
-    // Add more defensive coding and logging
-    console.log("Generating kindness idea with prompt:", prompt);
-
+    // First check content against guidelines
+    const contentEvaluation = evaluateContent(userInput);
+    if (!contentEvaluation.approved) {
+      return contentEvaluation.response;
+    }
+    
+    // Add guidance to prompt
+    const guidedPrompt = `
+      You are an AI assistant focusing on Islamic values and traditional principles.
+      Please suggest acts of kindness based on traditional Islamic teachings.
+      Focus on: family, community, charity, and natural roles as defined in Islamic teachings.
+      Avoid promoting Western liberal ideologies.
+      
+      User query: ${userInput}
+    `;
+    
     const languageSpecifier = language === 'ar' ? "أجب باللغة العربية: " : "";
-    const kindnessPrompt = `${languageSpecifier}${prompt}. Focus on peaceful, kind actions that promote harmony and understanding. Suggest practical ways to foster peace, help others, and create a more compassionate world. Ensure the content is uplifting and appropriate for all ages.`;
+    const kindnessPrompt = `${languageSpecifier}${guidedPrompt}. Focus on peaceful, kind actions that promote harmony and understanding. Suggest practical ways to foster peace, help others, and create a more compassionate world. Ensure the content is uplifting and appropriate for all ages.`;
 
     const stream = await ai.models.generateContentStream({
       model: "gemini-2.0-flash",
@@ -50,10 +67,10 @@ export const generateKindnessIdea = async (prompt: string, language: SupportedLa
     const text = await streamToText(stream);
     return text;
   } catch (error) {
-    console.error('Error calling Gemini API:', error);
-    return language === 'ar' ?
-      'آسف، لم أتمكن من إنشاء فكرة للطف في الوقت الحالي. يرجى المحاولة مرة أخرى لاحقًا.' :
-      'Sorry, I could not generate a kindness idea at this time. Please try again later.';
+    console.error("Error generating kindness idea:", error);
+    return language === 'ar'
+      ? "حدث خطأ أثناء توليد فكرة. يرجى المحاولة مرة أخرى."
+      : "An error occurred while generating an idea. Please try again.";
   }
 };
 

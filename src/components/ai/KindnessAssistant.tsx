@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MessageCircle, Send, X } from 'lucide-react';
 import { generateKindnessIdea } from '../../services/geminiService';
+import { evaluateContent } from '../../services/contentGuidelines';
 import Button from '../ui/Button';
 import Card, { CardContent } from '../ui/Card';
 import { SupportedLanguage } from '../../services/translationService';
@@ -48,6 +49,21 @@ const KindnessAssistant: React.FC<KindnessAssistantProps> = ({ language = 'en' }
     setIsLoading(true);
     
     try {
+      // Check content against guidelines
+      const contentEvaluation = evaluateContent(userMessage.text);
+      if (!contentEvaluation.approved) {
+        const guidelineMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: contentEvaluation.response,
+          isUser: false,
+          timestamp: new Date(),
+        };
+        
+        setMessages((prev) => [...prev, guidelineMessage]);
+        setIsLoading(false);
+        return;
+      }
+      
       const prompt = language === 'ar'
         ? `المستخدم يسأل عن اللطف والسلام: "${inputValue}". يرجى اقتراح أفكار للطف أو تقديم نصائح مفيدة حول كيفية نشر السلام والوئام.`
         : `The user is asking about kindness and peace: "${inputValue}". Please suggest peaceful acts or provide thoughtful advice related to promoting harmony and understanding between people.`;
