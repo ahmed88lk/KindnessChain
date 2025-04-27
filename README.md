@@ -4,18 +4,13 @@ KindnessChain is a platform that enables sharing, tracking, and inspiring acts o
 
 ## 🌟 Features
 
-<div align="center">
-
-<img src="images/image 1 .png" alt="Main Page" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
-
+![Main Page](images/image%201%20.png)
 **Main Page – Discover and share acts of kindness**
 
 ---
 
-<img src="images/image 2 .png" alt="Assistance Chatbot" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
-<img src="images/image3.png" alt="Image Generation" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
-
-<br/>
+![Assistance Chatbot](images/image%202%20.png)
+![Image Generation](images/image3.png)
 
 **Left: Assistance Chatbot**  
 *Get instant help and kindness ideas with our AI-powered assistant.*
@@ -25,11 +20,8 @@ KindnessChain is a platform that enables sharing, tracking, and inspiring acts o
 
 ---
 
-<img src="images/image4.png" alt="Challenges for Kids" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
-
+![Challenges for Kids](images/image4.png)
 **Challenges for Kids – Fun and educational kindness missions**
-
-</div>
 
 ---
 
@@ -49,29 +41,29 @@ KindnessChain is a platform that enables sharing, tracking, and inspiring acts o
 ## 💻 Installation and Setup
 
 1. Clone this repository:
-```bash
-git clone https://github.com/your-name/kindness-chain.git
-cd kindness-chain
-```
+   ```bash
+   git clone https://github.com/your-name/kindness-chain.git
+   cd kindness-chain
+   ```
 
 2. Install dependencies:
-```bash
-npm install
-# or with yarn
-yarn install
-```
+   ```bash
+   npm install
+   # or with yarn
+   yarn install
+   ```
 
 3. Configure your Gemini API key in the .env file:
-```
-VITE_GEMINI_API_KEY=your_gemini_api_key
-```
+   ```
+   VITE_GEMINI_API_KEY=your_gemini_api_key
+   ```
 
 4. Start the application in development mode:
-```bash
-npm run dev
-# or with yarn
-yarn dev
-```
+   ```bash
+   npm run dev
+   # or with yarn
+   yarn dev
+   ```
 
 5. Open your browser at: http://localhost:5173/
 
