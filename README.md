@@ -6,14 +6,14 @@ KindnessChain is a platform that enables sharing, tracking, and inspiring acts o
 
 <div align="center">
 
-<img src="./public/screenshots/feature1.png" alt="Main Page" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
+<img src="images/image 1 .png" alt="Main Page" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
 
 **Main Page – Discover and share acts of kindness**
 
 ---
 
-<img src=".C:\Users\ASUS\Downloads\project-bolt-sb1-soii1asw\kindness\images\image 1 .png" alt="Assistance Chatbot" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
-<img src="C:\Users\ASUS\Downloads\project-bolt-sb1-soii1asw\kindness\images\image3.png" alt="Image Generation" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
+<img src="images/image 2 .png" alt="Assistance Chatbot" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
+<img src="images/image3.png" alt="Image Generation" width="340" style="border-radius:12px;box-shadow:0 2px 8px #0002;display:inline-block;margin:8px;" />
 
 <br/>
 
@@ -25,7 +25,7 @@ KindnessChain is a platform that enables sharing, tracking, and inspiring acts o
 
 ---
 
-<img src="C:\Users\ASUS\Downloads\project-bolt-sb1-soii1asw\kindness\images\image4.png" alt="Challenges for Kids" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
+<img src="images/image4.png" alt="Challenges for Kids" width="700" style="border-radius:12px;box-shadow:0 2px 8px #0002;margin-bottom:16px;" />
 
 **Challenges for Kids – Fun and educational kindness missions**
 
