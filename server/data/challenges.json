@@ -1,0 +1,28 @@
+{
+  "challenges": [
+    {
+      "id": "challenge_1",
+      "title": "Daily Act of Kindness",
+      "description": "Perform one act of kindness every day for a week. It can be as simple as complimenting someone or helping a neighbor.",
+      "category": "Personal Growth",
+      "difficulty": "easy",
+      "points": 100,
+      "participants": 243,
+      "deadline": "2023-12-31T23:59:59Z",
+      "isTeamChallenge": false,
+      "image": "https://images.pexels.com/photos/7062550/pexels-photo-7062550.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      "id": "challenge_2",
+      "title": "Community Clean-up",
+      "description": "Gather a team and clean up litter in your local park or beach. Take before and after photos!",
+      "category": "Environmental",
+      "difficulty": "medium",
+      "points": 150,
+      "participants": 568,
+      "deadline": "2023-11-25T23:59:59Z",
+      "isTeamChallenge": true,
+      "image": "https://images.pexels.com/photos/7656461/pexels-photo-7656461.jpeg?auto=compress&cs=tinysrgb&w=800"
+    }
+  ]
+}

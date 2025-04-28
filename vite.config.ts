@@ -12,6 +12,13 @@ export default defineConfig({
     open: true,
     host: true,
     hmr: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   },
   build: {
     sourcemap: true,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, Menu, X, Globe, Award, BarChart2, Users, Search, LogIn, LogOut, UserPlus } from 'lucide-react';
+import { Heart, Menu, X, Globe, Award, BarChart2, Users, Search, LogIn, LogOut, UserPlus, Shield } from 'lucide-react';
 import { mockUser } from '../../data/mockData';
 import { AuthUser, logout } from '../../services/authService';
 import { SupportedLanguage, getTranslation } from '../../services/translationService';
@@ -14,6 +14,7 @@ interface HeaderProps {
   setIsRegisterOpen: (isOpen: boolean) => void;
   language: SupportedLanguage;
   onLanguageChange: (language: SupportedLanguage) => void;
+  isAdmin?: boolean;  // Ajout de la prop isAdmin
 }
 
 const Header: React.FC<HeaderProps> = ({ 
@@ -23,7 +24,8 @@ const Header: React.FC<HeaderProps> = ({
   setIsLoginOpen, 
   setIsRegisterOpen,
   language,
-  onLanguageChange
+  onLanguageChange,
+  isAdmin = false,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -111,6 +113,15 @@ const Header: React.FC<HeaderProps> = ({
                   {isProfileMenuOpen && (
                     <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <div className="py-1">
+                        {isAdmin && (
+                          <a 
+                            href="/admin"
+                            className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            <Shield className="h-4 w-4 mr-2" />
+                            Administration
+                          </a>
+                        )}
                         <button 
                           onClick={handleLogout}
                           className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

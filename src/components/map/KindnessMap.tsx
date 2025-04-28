@@ -1,15 +1,30 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { mockHeatmapData } from '../../data/mockData';
+import { analyticsService } from '../../services/analyticsService';
 
 const KindnessMap: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const [heatmapData, setHeatmapData] = useState<Array<{lat: number; lng: number; weight: number}>>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // This is a placeholder for where we would initialize the map using a library
-    // like Google Maps, Mapbox, or Leaflet. For this demo, we'll just show a static image.
+    const fetchHeatmapData = async () => {
+      try {
+        setLoading(true);
+        const data = await analyticsService.getHeatmapData();
+        setHeatmapData(data);
+        setIsMapLoaded(true);
+      } catch (err: any) {
+        setError(err.message || 'Failed to load map data');
+        console.error('Error fetching heatmap data:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     if (mapRef.current) {
-      setIsMapLoaded(true);
+      fetchHeatmapData();
     }
   }, []);
 
@@ -43,67 +58,22 @@ const KindnessMap: React.FC = () => {
         </div>
       </div>
       
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-        <div
-          ref={mapRef}
-          className="h-[500px] w-full relative bg-gray-100"
-        >
-          {isMapLoaded ? (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-full h-full">
-                <img
-                  src="https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt="Global Map"
-                  className="w-full h-full object-cover opacity-80"
-                />
-                {/* Simulated heatmap points */}
-                {mockHeatmapData.map((point, index) => {
-                  // These positioning values are just approximations for visual purposes
-                  // In a real application, we would convert lat/lng to pixel coordinates
-                  const leftPercentage = ((point.lng + 180) / 360) * 100;
-                  const topPercentage = ((90 - point.lat) / 180) * 100;
-                  
-                  return (
-                    <div
-                      key={index}
-                      className="absolute rounded-full animate-pulse"
-                      style={{
-                        left: `${leftPercentage}%`,
-                        top: `${topPercentage}%`,
-                        width: `${Math.max(20, point.weight / 3)}px`,
-                        height: `${Math.max(20, point.weight / 3)}px`,
-                        backgroundColor: `rgba(56, 178, 172, ${point.weight / 100})`,
-                        boxShadow: `0 0 ${point.weight / 5}px rgba(56, 178, 172, 0.8)`,
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-gray-500">Loading map...</p>
-            </div>
-          )}
+      {loading ? (
+        <div className="flex justify-center items-center h-96">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-500"></div>
         </div>
-        
-        <div className="p-4 bg-gray-50 border-t border-gray-100">
-          <div className="flex items-center justify-between">
-            <div>
-              <span className="text-sm font-medium text-gray-700">Total Acts:</span>
-              <span className="ml-2 text-lg font-bold text-teal-700">28,475</span>
-            </div>
-            <div>
-              <span className="text-sm font-medium text-gray-700">Countries:</span>
-              <span className="ml-2 text-lg font-bold text-teal-700">83</span>
-            </div>
-            <div>
-              <span className="text-sm font-medium text-gray-700">Today:</span>
-              <span className="ml-2 text-lg font-bold text-teal-700">+342</span>
-            </div>
+      ) : error ? (
+        <div className="flex justify-center items-center h-96 text-red-500">{error}</div>
+      ) : (
+        <div className="relative w-full h-96 bg-gray-100 rounded-lg overflow-hidden" ref={mapRef}>
+          <div className="absolute inset-0 flex items-center justify-center text-gray-500">
+            <p>Carte chargée avec {heatmapData.length} points de données</p>
+          </div>
+          <div className="absolute bottom-2 right-2 bg-white p-2 rounded shadow text-xs">
+            {heatmapData.length} actes de gentillesse répartis dans le monde entier
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -6,7 +6,7 @@ import KindnessAssistant from '../ai/KindnessAssistant';
 import AddKindnessActForm from '../acts/AddKindnessActForm';
 import LoginForm from '../auth/LoginForm';
 import RegisterForm from '../auth/RegisterForm';
-import { getCurrentUser, AuthUser } from '../../services/authService';
+import { getCurrentUser, AuthUser, isAdmin } from '../../services/authService';
 import { SupportedLanguage, getTranslation } from '../../services/translationService';
 
 interface MainLayoutProps {
@@ -47,6 +47,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
       }
     }
   }, [parentOnLanguageChange]);
+
+  // Vérifier si l'utilisateur est administrateur
+  const userIsAdmin = currentUser ? isAdmin() : false;
 
   const handleAddKindness = () => {
     if (currentUser) {
@@ -106,6 +109,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         setIsRegisterOpen={setIsRegisterOpen}
         language={language}
         onLanguageChange={handleLanguageChange}
+        isAdmin={userIsAdmin}
       />
       
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">

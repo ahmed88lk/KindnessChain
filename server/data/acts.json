@@ -1,0 +1,63 @@
+{
+  "acts": [
+    {
+      "id": "act_1",
+      "title": "Helped an elderly person with groceries",
+      "description": "I saw an elderly woman struggling with her grocery bags and helped her carry them to her apartment.",
+      "category": "Community Support",
+      "location": {
+        "lat": 40.7128,
+        "lng": -74.006,
+        "name": "New York, USA"
+      },
+      "date": "2023-05-15T14:32:00Z",
+      "media": {
+        "type": "image",
+        "url": "https://images.pexels.com/photos/7551617/pexels-photo-7551617.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      "tags": [
+        "elderly",
+        "community",
+        "groceries"
+      ],
+      "anonymous": false,
+      "author": {
+        "id": "user_1",
+        "name": "Mark Johnson",
+        "avatar": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300"
+      },
+      "reactions": {
+        "hearts": 23,
+        "inspired": 12,
+        "thanks": 8
+      }
+    },
+    {
+      "id": "act_2",
+      "title": "Planted 5 trees in my local park",
+      "description": "Joined a community initiative to increase green spaces in our neighborhood. We planted native species that will help support local wildlife.",
+      "category": "Environmental",
+      "location": {
+        "lat": 51.5074,
+        "lng": -0.1278,
+        "name": "London, UK"
+      },
+      "date": "2023-05-14T09:15:00Z",
+      "media": {
+        "type": "image",
+        "url": "https://images.pexels.com/photos/4488636/pexels-photo-4488636.jpeg?auto=compress&cs=tinysrgb&w=800"
+      },
+      "tags": [
+        "environment",
+        "trees",
+        "community"
+      ],
+      "anonymous": true,
+      "reactions": {
+        "hearts": 45,
+        "inspired": 32,
+        "thanks": 15
+      }
+    }
+  ]
+}

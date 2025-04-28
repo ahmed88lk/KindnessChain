@@ -1,18 +1,33 @@
-# Node modules
-node_modules
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+/server/node_modules
 
-# Build output
-dist
-dist-ssr
+# Build and production files
+/dist
+/build
+/out
 
-# Local env files
+# Database files
+*.sqlite
+*.sqlite-journal
+*.db
+*.db-journal
+/server/database.sqlite
+/server/data/*.json
+
+# Environment variables
 .env
+.env.*
+!.env.example
 .env.local
-.env.*.local
-
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Log files
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -21,17 +36,36 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Editor directories and files
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 .idea/
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+.DS_Store
+*.code-workspace
 
-# Vite cache
-.vite
+# Cache and temp files
+.cache/
+.temp/
+.vite/
+.parcel-cache/
+.eslintcache
 
-# Mac system files
+# Coverage and test files
+/coverage
+/cypress/videos/
+/cypress/screenshots/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 Icon?

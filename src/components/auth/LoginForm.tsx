@@ -103,6 +103,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSuccess, onRegisterClick, langu
               </button>
             </div>
           </div>
+
+          {/* Information d'accès admin/modérateur */}
+          <div className="bg-blue-50 p-3 rounded-md text-sm text-blue-800">
+            <p className="font-medium mb-1">Accès de test:</p>
+            <p>Admin: <strong>admin@kindnesschain.com / admin123</strong></p>
+            <p>Modérateur: <strong>moderator@kindnesschain.com / mod123</strong></p>
+          </div>
         </CardContent>
         
         <CardFooter className="flex flex-col space-y-3">

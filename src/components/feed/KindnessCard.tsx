@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Heart, MessageCircle, Share2, Award } from 'lucide-react';
+import { Heart, MessageCircle, Share2, Award, ThumbsUp } from 'lucide-react';
 import { KindnessAct } from '../../types';
 import Card, { CardContent, CardFooter } from '../ui/Card';
 import Badge from '../ui/Badge';
@@ -8,9 +8,10 @@ import { analyzeKindnessSentiment } from '../../services/geminiService';
 
 interface KindnessCardProps {
   act: KindnessAct;
+  onReaction: (id: string, type: 'hearts' | 'inspired' | 'thanks') => void;
 }
 
-const KindnessCard: React.FC<KindnessCardProps> = ({ act }) => {
+const KindnessCard: React.FC<KindnessCardProps> = ({ act, onReaction }) => {
   const [sentimentScore, setSentimentScore] = useState<number | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
@@ -32,6 +33,11 @@ const KindnessCard: React.FC<KindnessCardProps> = ({ act }) => {
       analyzeText();
     }
   }, [act.anonymous, act.description]);
+
+  // Handler for reaction clicks
+  const handleReactionClick = (type: 'hearts' | 'inspired' | 'thanks') => {
+    onReaction(act.id, type);
+  };
 
   return (
     <Card className="mb-4 transform transition-transform duration-300 hover:-translate-y-1">
@@ -124,16 +130,27 @@ const KindnessCard: React.FC<KindnessCardProps> = ({ act }) => {
       
       <CardFooter className="flex justify-between items-center">
         <div className="flex space-x-4">
-          <button className="flex items-center text-gray-600 hover:text-red-500 transition-colors">
+          <button 
+            className="flex items-center text-rose-500 hover:text-rose-600" 
+            onClick={() => handleReactionClick('hearts')}
+          >
             <Heart className="h-5 w-5 mr-1" />
             <span>{act.reactions.hearts}</span>
           </button>
-          <button className="flex items-center text-gray-600 hover:text-teal-500 transition-colors">
-            <Award className="h-5 w-5 mr-1" />
+          
+          <button 
+            className="flex items-center text-blue-500 hover:text-blue-600" 
+            onClick={() => handleReactionClick('inspired')}
+          >
+            <ThumbsUp className="h-5 w-5 mr-1" />
             <span>{act.reactions.inspired}</span>
           </button>
-          <button className="flex items-center text-gray-600 hover:text-purple-500 transition-colors">
-            <MessageCircle className="h-5 w-5 mr-1" />
+          
+          <button 
+            className="flex items-center text-amber-500 hover:text-amber-600"
+            onClick={() => handleReactionClick('thanks')}
+          >
+            <Award className="h-5 w-5 mr-1" />
             <span>{act.reactions.thanks}</span>
           </button>
         </div>
