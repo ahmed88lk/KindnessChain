@@ -1,129 +1,171 @@
-# KindnessChain - Platform Inspired by Islamic Teachings of Peace and Kindness
+# 🌟 KindnessChain
 
-KindnessChain is a platform that enables sharing, tracking, and inspiring acts of kindness around the world, founded on authentic Islamic teachings. Our mission is to create a global community dedicated to promoting kindness, empathy, and support among individuals, inspired by the Sunnah of Prophet Muhammad (peace be upon him).
+KindnessChain est une plateforme qui connecte les personnes à travers des actes de gentillesse, permettant aux utilisateurs de partager, s'inspirer et suivre leur impact positif dans le monde.
 
-## 🌟 Features
+## 📋 Fonctionnalités
 
-![Main Page](images/image%201%20.png)
-**Main Page – Discover and share acts of kindness**
+- **Feed d'inspiration**: Découvrez et partagez des actes de gentillesse
+- **Défis de gentillesse**: Participez à des défis communautaires pour faire le bien
+- **Tableau de bord d'impact**: Visualisez l'impact collectif de la communauté
+- **Communauté mondiale**: Connectez-vous avec des ambassadeurs de la gentillesse du monde entier
+- **Carte de gentillesse**: Explorez comment les actes de gentillesse se répandent géographiquement
+- **Assistant IA**: Recevez des suggestions d'actes de gentillesse personnalisées de notre assistant IA
+- **Système de récompenses**: Gagnez des points et des badges pour vos actions positives
 
----
+## 🛠️ Technologies
 
-![Assistance Chatbot](images/image%202%20.png)
-![Image Generation](images/image3.png)
+### Frontend
+- React 18 avec hooks fonctionnels
+- TypeScript pour un typage statique
+- Tailwind CSS pour le style
+- Vite comme outil de build et serveur de développement
+- Lucide React pour les icônes
 
-**Left: Assistance Chatbot**  
-*Get instant help and kindness ideas with our AI-powered assistant.*
+### Backend
+- Node.js et Express pour l'API REST
+- Sequelize comme ORM pour la base de données
+- SQLite en développement (facilement migratable vers MySQL/PostgreSQL)
+- JWT pour l'authentification
+- bcrypt pour le hachage sécurisé des mots de passe
 
-**Right: Islamic Peace Image Generation**  
-*Create beautiful, meaningful images inspired by Islamic values.*
+### Intégrations
+- Google Gemini API pour les fonctionnalités d'IA
+- Service d'avatars UI Avatars pour les images de profil par défaut
 
----
+## 🚀 Installation
 
-![Challenges for Kids](images/image4.png)
-**Challenges for Kids – Fun and educational kindness missions**
+### Prérequis
 
----
+- Node.js v18.14.0 ou supérieur
+- npm ou yarn
 
-## 🚀 Technologies Used
+### Configuration
 
-- React 18 with TypeScript
-- TailwindCSS for styling
-- Google Gemini 2.0 API for AI functionalities
-- LocalStorage for data persistence (demo version)
-
-## 📋 Prerequisites
-
-- Node.js 18+
-- npm or yarn
-- Google Gemini API key (to be configured in the .env file)
-
-## 💻 Installation and Setup
-
-1. Clone this repository:
+1. Cloner le dépôt:
    ```bash
-   git clone https://github.com/your-name/kindness-chain.git
+   git clone https://github.com/votre-nom/kindness-chain.git
    cd kindness-chain
    ```
 
-2. Install dependencies:
+2. Installer les dépendances du frontend:
    ```bash
    npm install
-   # or with yarn
-   yarn install
    ```
 
-3. Configure your Gemini API key in the .env file:
-   ```
-   VITE_GEMINI_API_KEY=your_gemini_api_key
+3. Installer les dépendances du backend:
+   ```bash
+   cd server
+   npm install
    ```
 
-4. Start the application in development mode:
+4. Configurer les variables d'environnement:
+   - Copiez `.env.example` vers `.env` dans le dossier racine
+   - Ajoutez votre clé API Gemini (pour les fonctionnalités d'IA)
+   - Configurez les paramètres de base de données si nécessaire
+
+5. Initialiser la base de données:
+   ```bash
+   cd server
+   npm run init-db
+   ```
+
+## 🏃‍♂️ Démarrage
+
+1. Démarrer le serveur backend (depuis le dossier `server`):
    ```bash
    npm run dev
-   # or with yarn
-   yarn dev
    ```
 
-5. Open your browser at: http://localhost:5173/
+2. Démarrer le frontend (depuis le dossier racine):
+   ```bash
+   npm run dev
+   ```
 
-## 🌍 Multilingual Support
+3. Accédez à l'application sur: http://localhost:5173
 
-KindnessChain supports multiple languages:
+## 👥 Comptes de test
 
-- 🇬🇧 English
-- 🇸🇦 Arabic (with RTL support)
-- 🇫🇷 French
+- **Admin**: admin@kindnesschain.com / admin123
+- **Modérateur**: moderator@kindnesschain.com / mod123
+- **Utilisateur**: Créez votre propre compte en vous inscrivant!
 
-To change languages, use the language selector in the application header.
+## 📱 Captures d'écran
 
-## 📚 Islamic Foundation
+![Dashboard](docs/images/dashboard.png)
+![Feed](docs/images/feed.png)
+![Challenges](docs/images/challenges.png)
 
-The KindnessChain platform is built upon the teachings of the Quran and authentic hadiths, emphasizing kindness, compassion, and mercy. The concept is inspired by many Quranic verses about Allah's mercy, including:
+## 📂 Structure du serveur
 
-> "Say, 'O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.'" — Quran 39:53
+```
+server/
+├── config/            # Configuration de la base de données et initialisation
+│   ├── database.js    # Configuration Sequelize
+│   └── initDb.js      # Script d'initialisation de la DB avec données de démonstration
+├── models/            # Modèles Sequelize
+│   ├── Challenge.js   # Modèle pour les défis
+│   ├── KindnessAct.js # Modèle pour les actes de gentillesse
+│   ├── User.js        # Modèle utilisateur
+│   └── index.js       # Configuration des relations entre modèles
+├── routes/            # Routes API Express
+│   ├── acts.js        # Endpoints pour les actes de gentillesse
+│   ├── analytics.js   # Endpoints pour les statistiques et métriques
+│   ├── auth.js        # Authentification et gestion des utilisateurs
+│   ├── challenges.js  # Endpoints pour les défis
+│   └── community.js   # Endpoints pour les données communautaires
+├── database.sqlite    # Base de données SQLite (générée après initialisation)
+├── server.js          # Point d'entrée du serveur
+└── nodemon.json       # Configuration de Nodemon pour le développement
+```
 
-Our guiding hadith for this platform is:
+## 📡 API Documentation
 
-> "The merciful will be shown mercy by the Most Merciful. Be merciful to those on the earth, and the One in the heavens will have mercy upon you." — Sunan al-Tirmidhī 1924 (Sahih)
+L'API REST est disponible sur `http://localhost:5000/api/` avec les endpoints suivants:
 
-## ⚠️ Important Note on Hadiths and Quranic Verses
+### Authentication
+- `POST /api/auth/register` - Inscription d'un nouvel utilisateur
+- `POST /api/auth/login` - Connexion utilisateur
+- `GET /api/auth/me` - Récupérer les données de l'utilisateur connecté
+- `PUT /api/auth/preferences` - Mettre à jour les préférences utilisateur
 
-All hadiths featured in this application are from authenticated sources such as Sahih Bukhari, Sahih Muslim, Sunan al-Tirmidhi, and other respected collections. Similarly, Quranic verses are presented with proper references to surah and ayah numbers.
+### Actes de gentillesse
+- `GET /api/acts` - Récupérer tous les actes de gentillesse
+- `GET /api/acts/:id` - Récupérer un acte spécifique
+- `POST /api/acts` - Créer un nouvel acte de gentillesse
+- `POST /api/acts/:id/react` - Réagir à un acte de gentillesse
 
-**Disclaimer**: We have made every effort to ensure the accuracy of the hadiths and Quranic verses presented in this application. However, if any errors are found, they should be attributed to the original sources referenced and not to the developers. We encourage users to verify with the original sources:
+### Défis
+- `GET /api/challenges` - Récupérer tous les défis
+- `GET /api/challenges/:id` - Récupérer un défi spécifique
+- `POST /api/challenges/:id/join` - Rejoindre un défi
 
-- For hadiths: https://www.iium.edu.my/deed/hadith/other/hadithnawawi.html and https://sunnah.com
-- For Quranic verses: Official Quran publications and authenticated online resources
+### Analytics
+- `GET /api/analytics` - Récupérer les statistiques générales
+- `GET /api/analytics/heatmap` - Données pour la carte de chaleur
 
-If you find any inaccuracies, please contact us immediately so we can correct them.
+### Communauté
+- `GET /api/community/ambassadors` - Liste des ambassadeurs
+- `GET /api/community/leaderboard` - Classement des utilisateurs
 
-## 🤝 Contributing
+## 🔧 Architecture technique
 
-We welcome all contributions!  
-Whether you want to fix a bug, suggest a feature, improve the UI, or translate the app, your help is appreciated.
+Le système est construit sur une architecture RESTful avec une séparation claire entre le frontend et le backend. Le serveur utilise une architecture en couches:
 
-**How to contribute:**
-1. Fork this repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to your branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. **Routes** - Points d'entrée de l'API qui délèguent aux contrôleurs
+2. **Modèles** - Représentent les entités de données avec Sequelize
+3. **Middleware** - Gestion de l'authentification et autorisations
+4. **Utilitaires** - Fonctions helpers partagées
 
-**Want to discuss an idea or need help?**  
-Open an [issue](https://github.com/your-name/kindness-chain/issues) or join the discussion!
+Le stockage des données utilise SQLite en développement pour faciliter la mise en place, mais peut facilement être migré vers MySQL ou PostgreSQL pour la production grâce à Sequelize.
 
----
+## 🤝 Contribution
 
-## ❤️ Our Mission
+Les contributions sont les bienvenues! Veuillez consulter notre guide de contribution pour plus de détails.
 
-KindnessChain aims to create a more united and caring world by encouraging and amplifying acts of kindness based on Islamic values. We believe that small acts of kindness can have an enormous impact on our society and create virtuous cycles of compassion, as taught by our beloved Prophet Muhammad (peace be upon him).
+## 📝 Licence
 
-The Quranic verses and hadiths we share remind us of this universal truth: kindness is a language understood by everyone, regardless of cultural or linguistic barriers. Through peaceful interactions and mutual understanding, we can build a more harmonious world together.
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
-As the Quran states:
-> "And We have not sent you, [O Muhammad], except as a mercy to the worlds." — Quran 21:107
+## 💖 Remerciements
 
----
-
-Developed with ❤️ for a kinder, more peaceful world based on Islamic principles of mercy and compassion
+Ce projet a été créé avec l'objectif de promouvoir la gentillesse et l'entraide à l'échelle mondiale.
